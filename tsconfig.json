@@ -3,5 +3,11 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": "."
-  }
+  },
+  "include": [
+    "../huid/src",
+    "../state/src",
+    "../context/src",
+    "../core/src",
+  ]
 }
