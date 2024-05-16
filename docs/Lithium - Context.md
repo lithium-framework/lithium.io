@@ -1,7 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 8
 ---
-# Lithium context
+
+# Lithium - Context
 
 **`@lithium-framework/context`** est un module de gestion de stockage d'état pour le framework Lithium. Il permet de créer des états centralisés et de gérer leur validation et mise à jour de manière fluide et efficace.
 
@@ -45,39 +46,23 @@ console.log(+count); // affiche 5
 
 Le package est entièrement typé pour fournir une expérience de développement améliorée avec TypeScript.
 
-### **Types**
-
-- **`StateValidator<T>`** : Fonction appelée lors du changement d'un état. Retourne une promesse ou une valeur booléenne indiquant le succès ou l'échec de la modification.
-- **`StorageKeys<RECORD>`** : Type des clés d'un enregistrement.
-- **`StorageValues<RECORD>`** : Type des valeurs d'un enregistrement.
-
 ### **API**
 
-### **`createStorage`**
+### Functions
 
-La fonction **`createStorage`** crée un objet proxy pour gérer le stockage avec des méthodes d'accès et de mise à jour des données.
-
-```tsx
-function createStorage<RECORD extends Record<string, any>>(records: Partial<RECORD> = {}, stateValidator?: StateValidator): Storage<RECORD>;
-```
+### **`createStorage**<**RECORD** extends **Record**<string, any>>(records: **Partial**<**RECORD**> = {}, **stateValidator**?: **StateValidator**): **Storage**<**RECORD**>`
 
 ### **Paramètres**
 
 - **`records`** (optionnel) : Un objet partiel contenant des paires clé-valeur représentant des enregistrements de données initiales.
 - **`stateValidator`** (optionnel) : Une fonction de validation appelée lors de la modification d'un état.
-
-### **Retour**
-
+    
+    ### **Retour**
+    
 - Retourne un objet Proxy qui entoure l'objet de stockage.
 
-## **Documentation Complète**
+### **Types**
 
-Pour plus de détails, consultez la documentation complète.
-
-## **Contribuer**
-
-Les contributions sont les bienvenues ! Veuillez lire notre guide de contribution pour plus de détails.
-
-## **Licence**
-
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+- **`StateValidator<T>`** : Fonction appelée lors du changement d'un état. Retourne une promesse ou une valeur booléenne indiquant le succès ou l'échec de la modification.
+- **`StorageKeys<RECORD>`** : Type des clés d'un enregistrement.
+- **`StorageValues<RECORD>`** : Type des valeurs d'un enregistrement.

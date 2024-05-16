@@ -1,13 +1,12 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 ---
-# Lithium State
+
+# Lithium - State
 
 # **Gestion des États avec Lithium**
 
 **`@lithium-framework/state`**  fournit une gestion des états puissante et intuitive, permettant de suivre et de réagir aux changements de valeurs de manière efficace. Ce guide explique comment utiliser la classe **`State`** et la fonction **`createState`** pour gérer les états dans vos applications.
-
-## **Table des Matières**
 
 ## **Introduction**
 
@@ -112,8 +111,7 @@ Crée un état avec une valeur initiale et renvoie son mutateur.
 ### **Exemple 1 : Compteur Réactif**
 
 ```tsx
-typescriptCopier le code
-import { createState } from 'lithium';
+import { createState } from '@lithium-framework/state';
 
 let [ counter, setCounter ] = createState<number>(0);
 
@@ -128,19 +126,14 @@ setCounter(counter.value + 1); // Incrémente le compteur
 ### **Exemple 2 : Historique des États**
 
 ```tsx
-typescriptCopier le code
-import { State } from 'lithium';
+import { createState } from '@lithium-framework/state';
 
-let state = State.init<number>(0);
+let [ state , setState ] = createState<number>(0);
 
-state.value = 1;
-state.value = 2;
-state.value = 3;
+setState( 1 );
+setState( 2 );
+setState( 3 );
 
 console.log(state.history); // Affiche [0, 1, 2]
 
 ```
-
-## **Contribuer**
-
-Les contributions sont les bienvenues !
