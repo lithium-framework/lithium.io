@@ -1,8 +1,4 @@
----
-sidebar_position: 5
----
-
-# Lithium - Samples
+## First render
 
 ```tsx
 import { html , render } from '@lithium-framework/core';
@@ -17,6 +13,8 @@ function Hello({ name }){
 
 render( Hello({ message : 'World' }) , document.body );
 ```
+
+## Counter
 
 ```tsx
 import { html , render , createState } from '@lithium-framework/core';
@@ -35,6 +33,8 @@ function MyCounter(){
 
 render( MyCounter() , document.body );
 ```
+
+## List
 
 ```tsx
 import { html , render , createState } from '@lithium-framework/core';
