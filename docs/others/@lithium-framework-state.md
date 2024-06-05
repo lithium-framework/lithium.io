@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# Lithium - State
+# @lithium-framework/state
 
 # **Gestion des États avec Lithium**
 

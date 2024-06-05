@@ -28,7 +28,7 @@ La syntaxe des templates peut donner l'impression que vous faites simplement de 
 ### Template
 
 ```tsx
-import { html } from '@lithium-framework/core';
+import { html } from '@lithium-framework/core-dom';
 
 let template = html`<h1>Hello World !</h1>`;
 ```
@@ -36,7 +36,7 @@ let template = html`<h1>Hello World !</h1>`;
 ### Function template
 
 ```tsx
-import { html } from '@lithium-framework/core';
+import { html } from '@lithium-framework/core-dom';
 
 function MyTemplate({ message }){
 	return html`<h1>${message}</h1>`;
@@ -46,7 +46,7 @@ function MyTemplate({ message }){
 ### Render template
 
 ```tsx
-import { html , render } from '@lithium-framework/core';
+import { html , render } from '@lithium-framework/core-dom';
 
 let template = html`<h1>Hello World !</h1>`;
 
@@ -56,7 +56,7 @@ render( template , document.body );
 ### Render function template
 
 ```tsx
-import { html , render } from '@lithium-framework/core';
+import { html , render } from '@lithium-framework/core-dom';
 
 function MyTemplate({ message }){
 	return html`<h1>${message}</h1>`;

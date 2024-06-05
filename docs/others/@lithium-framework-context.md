@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# Lithium - Context
+# @lithium-framework/context
 
 **`@lithium-framework/context`** est un module de gestion de stockage d'état pour le framework Lithium. Il permet de créer des états centralisés et de gérer leur validation et mise à jour de manière fluide et efficace.
 

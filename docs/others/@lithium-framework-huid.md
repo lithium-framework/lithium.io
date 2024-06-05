@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Lithium - HUID
+# @lithium-framework/huid
 
 **`@lithium-framework/huid`** est une bibliothèque TypeScript permettant de générer et de gérer des Identifiants Universellement Uniques Hiérarchiques (UUID). Cette bibliothèque offre une manière structurée de créer et de manipuler des UUID avec des relations parent-enfant, ce qui la rend idéale pour les scénarios nécessitant une organisation hiérarchique des données.
 

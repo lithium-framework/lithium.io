@@ -1,4 +1,4 @@
-# Directives
+# directives
 
 Les directives Lithium sont un concept essentiel dans le développement d'applications web avec le framework JavaScript Lithium. Elles s'inspirent des directives Lit, un concept fondamental de la bibliothèque Lit, qui est une approche moderne et performante pour la création de composants web réactifs.
 
