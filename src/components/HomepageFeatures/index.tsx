@@ -1,42 +1,41 @@
+import * as React from 'react';
+
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  // Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Build Fast, Scale Seamlessly',
+    // Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
+      <p style = {{ fontSize : "12px" }} >
+        Lithium est conçu pour permettre aux développeurs de créer rapidement des applications web performantes qui peuvent facilement évoluer à mesure que les besoins de l'application grandissent.
+      </p>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Write Less, Achieve More',
+    // Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
+      <p style = {{ fontSize : "12px" }} >
+        Avec ses fonctionnalités avancées comme les templates déclaratifs et les directives, Lithium réduit le code nécessaire pour créer des interfaces complexes, permettant ainsi de se concentrer sur la logique métier.
+      </p>
     ),
   },
   {
-    title: 'Powered by Lit',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Modern Tools, Timeless Efficiency',
+    // Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
+      <p style = {{ fontSize : "12px" }} >
+        En utilisant des technologies modernes comme les Web Components et un système de bundling flexible, Lithium offre une expérience de développement à la pointe tout en garantissant des pratiques durables et efficaces.
+      </p>
     ),
   },
 ];
@@ -45,7 +44,7 @@ function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        {/* <Svg className={styles.featureSvg} role="img" /> */}
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
@@ -59,7 +58,7 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className="row" style = {{ display : 'flex' , alignItems : 'center' }} >
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
