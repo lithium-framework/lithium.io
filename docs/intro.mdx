@@ -1,0 +1,52 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+import Logo from '../static/img/logo.svg';
+
+<div style = {{ display : "grid" , justifyContent : "center" , textAlign : "center" }} >
+	<Logo style = {{ aspectRatio : "1/1" , height : "200px" }} />
+	<h3>Welcome to the Lithium Documentation 👋</h3>
+</div>
+
+### 1. **Qu'est-ce que Lithium ?**
+
+Lithium est un framework JavaScript moderne qui se concentre sur la création d'interfaces utilisateur performantes et réactives en combinant les avantages des Web Components et du noyau [FAST](https://www.fast.design/). Il se distingue par sa légèreté, ses performances accrues, et son interopérabilité avec divers frameworks JavaScript comme [Angular](https://angular.dev/), [React](https://react.dev/), et [Vue](https://vuejs.org/). Lithium est conçu pour offrir une solution simple pour le développement d'interfaces, sans la complexité de configurations lourdes.
+
+### 2. **Qu'est-ce que sont les Web Components ?**
+
+Les [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) sont une suite de technologies standard du Web qui permettent de créer des éléments réutilisables et encapsulés dans les applications web. Ils sont conçus pour offrir une meilleure modularité et réutilisabilité du code tout en améliorant les performances et la gestion des styles. Voici un aperçu détaillé de ces technologies :
+
+1. **Custom Elements** : Permettent de définir de nouveaux éléments HTML avec un comportement personnalisé. Ils sont basés sur la classe `HTMLElement`, ce qui permet de créer des éléments HTML personnalisés que l'on peut utiliser de la même manière que les éléments HTML natifs.
+2. **Shadow DOM** : Fournit un encapsulage des styles et du DOM. Cela signifie que chaque Web Component a son propre DOM (appelé Shadow DOM) et ses propres styles, qui sont isolés du reste du document. Cela évite les problèmes de styles globaux qui peuvent affecter d'autres parties de l'application.
+3. **HTML Templates** : Permettent de définir des fragments HTML qui peuvent être réutilisés dans les Web Components. Les templates sont déclarés à l’aide de la balise `<template>` et sont utilisés pour créer des instances de contenu qui peuvent être clonées et insérées dans le DOM.
+4. **HTML Imports** (obsolète) : Étaient utilisés pour importer des documents HTML dans d'autres documents HTML. Cette fonctionnalité a été retirée du standard des Web Components car elle a été jugée problématique et difficile à maintenir. Elle a été remplacée par les modules JavaScript.
+
+Les Web Components ont des avantages significatifs :
+
+- **Performance** : Ils sont implémentés en C++ ou en Rust dans les navigateurs, ce qui leur permet d'être plus rapides et plus économes en mémoire comparés aux solutions basées sur JavaScript.
+- **Interopérabilité** : Étant une norme du Web, les Web Components peuvent être utilisés dans n'importe quel environnement de développement moderne. Ils fonctionnent de manière fluide avec les principaux frameworks JavaScript (comme Angular, React, et Vue) en raison de leur nature standardisée.
+- **Isolation** : Le Shadow DOM permet une isolation complète des styles et du DOM, ce qui est crucial pour les grandes applications ou les systèmes de plugins où les styles ne doivent pas interférer entre eux.
+
+### 3. **Qu'est-ce que Lithium apporte ?**
+
+Lithium apporte plusieurs améliorations et caractéristiques par rapport aux autres frameworks :
+
+- **Interopérabilité** : Fonctionne bien avec d’autres frameworks comme Angular, React, et Vue grâce à l'utilisation de Web Components standardisés.
+- **Performance** : Grâce à l’intégration avec le noyau FAST, Lithium assure une exécution rapide et efficace, surtout dans des environnements complexes.
+- **Simplicité** : Propose une approche sans configuration complexe avec des templates JavaScript simples.
+- **SSR (Rendu côté serveur)** : Supporte le rendu côté serveur pour des performances et un SEO améliorés.
+- **Directives avancées** : Utilise des directives FAST pour une gestion sophistiquée de l’état et du cycle de vie des composants.
+
+### 4. **Comment Lithium peut m'aider en tant que développeur ?**
+
+Lithium peut vous aider de plusieurs manières :
+
+- **Interopérabilité facile** : Vous pouvez intégrer Lithium avec des projets existants qui utilisent Angular, React, ou Vue sans avoir à réécrire tout le code.
+- **Performance améliorée** : Les optimisations offertes par FAST garantissent que vos interfaces utilisateur fonctionnent rapidement et efficacement, même avec des données complexes ou une grande quantité de composants.
+- **Simplicité de développement** : Le framework facilite la création de composants avec peu de configuration, ce qui réduit la courbe d'apprentissage et accélère le développement.
+- **Rendu côté serveur** : Le support pour le rendu côté serveur améliore les temps de chargement des pages et le SEO, ce qui est crucial pour les applications web modernes.
+- **Gestion simplifiée des états** : Avec le **ComponentContext** et les **directives** avancées, vous pouvez facilement gérer l’état et la logique des composants de manière fluide et réactive.
+- **Flexibilité des templates** : Les **ViewTemplate** et les **expressions** permettent une grande flexibilité dans la création d’interfaces dynamiques et réactives.

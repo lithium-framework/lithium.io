@@ -1,0 +1,66 @@
+---
+sidebar_position: 1
+---
+
+# Déclarer un Template
+
+En Lithium, un template est une structure qui permet de définir le rendu HTML d'un composant ou d'une vue. 
+Les [ViewTemplate](https://www.fast.design/docs/api/fast-element.viewtemplate/#viewtemplate-class) sont des encapsulations optimisées de ces templates, offrant des performances améliorées pour le rendu dynamique.
+
+:::tip
+  Il est préférable de déclarer un template en utilisant une fonction pour le contenu dynamique, 
+  plutôt qu’en insérant directement des expressions dans le littéral de template.
+:::
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="template" label="Template">
+
+  ## Template
+  Les templates sont déclarés en utilisant des [littéraux de template](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) JavaScript marqués par la fonction html :
+
+  ```tsx showLineNumbers
+  import { html, ViewTemplate } from '@lithium-framework/core';
+
+  // Déclaration d'un template simple
+  let template: ViewTemplate<any> = html`<h1>Hello, ${( context ) => context.name}!</h1>`;
+  ```
+  Dans cet exemple :
+
+  html est une fonction qui permet de créer un template.
+  `${name}` est une expression dynamique qui sera remplacée par la valeur de name lors du rendu.
+
+  </TabItem>
+  <TabItem value="templateDynamic" label="Template et contenu dynamique" default>
+
+  ## Template et contenu dynamique
+  Les templates sont déclarés en utilisant des [littéraux de template](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) JavaScript marqués par la fonction html :
+
+  ```tsx showLineNumbers
+  import { html, ViewTemplate } from '@lithium-framework/core';
+
+  // Déclaration d'un template simple
+  let template: ViewTemplate<any> = html`${(context) => {
+
+    return html`<h1>Hello, ${context.name}!</h1>`;
+
+  }}`;
+  ```
+
+  :::note
+  **Pourquoi cette approche est préférable :**
+
+  1. **Clarté et Flexibilité** :
+      - En utilisant une fonction pour gérer le contenu dynamique, vous séparez clairement la logique de traitement des données de la déclaration du template. Cela rend le code plus lisible et maintenable.
+  2. **Contrôle Avancé du Contexte** :
+      - Avec une fonction, vous pouvez manipuler le contexte de manière plus détaillée avant de produire le HTML final. Vous pouvez effectuer des opérations conditionnelles, des boucles, ou d'autres transformations nécessaires.
+  3. **Performance Améliorée** :
+      - Les fonctions permettent une gestion plus fine du contexte, ce qui peut conduire à des optimisations au niveau du rendu. Lithium peut mieux gérer les changements dynamiques et minimiser les recalculs inutiles.
+  4. **Réutilisabilité** :
+      - En encapsulant la logique de génération de contenu dans une fonction, vous pouvez facilement réutiliser des parties du code ou ajuster la logique sans modifier le template lui-même. Cela favorise la modularité.
+  :::
+
+  </TabItem>
+</Tabs>

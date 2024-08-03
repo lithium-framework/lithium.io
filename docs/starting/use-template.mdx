@@ -1,0 +1,71 @@
+---
+sidebar_position: 2
+---
+
+# Utiliser un Template
+
+[🚧text manquant]
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+<Tabs>
+  <TabItem value="noWebComponent" label="No WebComponent">
+
+  ## Utilisation des Templates à la Volée
+
+  Les templates peuvent être utilisés directement dans le contexte d'un rendu dynamique sans avoir besoin de créer un composant Web complet. Cela permet une flexibilité accrue pour des cas d'utilisation plus légers ou des vues temporaires.
+
+  ### Exemple de Rendu à la Volée
+
+  Voici comment rendre un template directement dans le DOM :
+
+  ```tsx showLineNumbers
+  import { html, render, ViewTemplate } from '@lithium-framework/core';
+
+  // Déclaration du template
+  let template: ViewTemplate<any> = html`<h1>Hello, ${( context ) => context.name}!</h1>`;
+
+  render(template, document.body , { name : "World" });
+  ```
+
+  Dans cet exemple :
+
+  - `render` est utilisé pour insérer le template dans le DOM.
+  - Le template est rendu dans un élément `container`, avec des données passées pour remplacer `${name}`.
+
+  </TabItem>
+  <TabItem value="webComponent" label="With WebComponent" default>
+
+  ## Utilisation des Templates avec Web Components
+
+  Vous pouvez créer un Web Component en utilisant la classe WebComponent fournie par Lithium, qui est une extension de [FastElement](https://www.fast.design/docs/fast-element/defining-elements). Voici comment déclarer et utiliser un Web Component :
+
+  ```tsx {4,7-10} showLineNumbers
+  import { html, render, ViewTemplate, customElement, WebComponent } from '@lithium-framework/core';
+
+  // Déclaration du template
+  let template: ViewTemplate<any> = html`<h1>Hello, ${this.name}!</h1>`;
+
+  // Création du Web Component
+  @customElement({
+      name: 'my-web-component',
+      template
+  })
+  class MyWebComponent extends WebComponent {
+      name: string = 'World';
+  }
+
+  // Rendu du Web Component
+  render(html`<my-web-component></my-web-component>`, document.body , { name: 'World' });
+  ```
+
+  Dans cet exemple :
+
+  @[customElement](https://www.fast.design/docs/api/fast-element.customelement/#customelement-function) est un décorateur qui enregistre le composant sous le nom my-web-component et associe le template à ce composant.
+  MyWebComponent est une classe qui étend WebComponent et définit une propriété name.
+  render est utilisé pour rendre le Web Component dans le DOM. Notez que vous pouvez passer des propriétés dynamiques au composant via le troisième argument de render.
+
+  </TabItem>
+</Tabs>

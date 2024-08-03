@@ -1,0 +1,40 @@
+---
+sidebar_position: 3
+---
+
+# Utiliser les Directives
+
+Les directives sont des fonctionnalités puissantes de Lithium qui permettent d'ajouter une logique de rendu dynamique dans vos templates. Elles sont utilisées pour manipuler le DOM de manière déclarative et réactive, offrant un contrôle précis sur la manière dont les éléments sont rendus et mis à jour.
+
+## Principes de Base des Directives
+
+Une directive est une fonction qui prend des arguments et retourne une fonction qui sera exécutée lors du rendu du template. Les directives peuvent être utilisées pour introduire des comportements conditionnels, des répétitions, des ajouts ou suppressions dynamiques d'éléments dans le DOM, et bien plus encore.
+
+### Exemple Simple de Directive
+
+Voici un exemple d'utilisation d'une directive dans un template :
+
+```tsx {7-11} showLineNumbers
+import { html, render , ViewTemplate } from '@lithium-framework/core';
+
+// Déclaration du template avec une directive conditionnelle
+let template: ViewTemplate<any> = html`${( context ) => {
+
+  return html`<div>
+    ${when(
+      context.someCondition, 
+      html`<p>Condition est vraie !</p>`, 
+      html`<p>Condition est fausse.</p>`
+    )}
+  </div>`
+
+}}`;
+
+render( template , document.body , { someCondition } )
+```
+
+Dans cet exemple, la directive `when` est utilisée pour rendre un contenu spécifique en fonction d'une condition (`someCondition`). Si la condition est vraie, le premier template est rendu, sinon le second l'est.
+
+## Directives Intégrées
+
+Lithium fournit plusieurs directives intégrées prêtes à l'emploi : [Directives](../category/directives).

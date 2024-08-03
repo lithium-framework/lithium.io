@@ -1,0 +1,57 @@
+---
+sidebar_position: 2
+---
+
+# Overview
+
+**Lithium** est un framework JavaScript qui facilite la création d'interfaces utilisateur en combinant la puissance des Web Components et du noyau FAST. Il est conçu pour être léger, performant et interopérable, permettant aux développeurs de créer des interfaces modernes et réactives tout en conservant une grande simplicité.
+
+### **Caractéristiques principales :**
+
+- **Interopérabilité** : Fonctionne de manière fluide avec Angular, React, Vue et autres, grâce à ses Web Components standardisés.
+- **Performances** : Utilise les optimisations de FAST pour offrir une exécution plus rapide, particulièrement dans les environnements complexes.
+- **Légèreté** : Réduit la taille des bundles, améliorant ainsi les temps de chargement.
+- **Simplicité** : Propose une approche sans configuration complexe, en s’appuyant sur des templates JavaScript simples.
+- **SSR (Rendu côté serveur)** : Supporte le SSR pour des performances optimisées et un meilleur SEO.
+- **Directives avancées** : Bénéficie des directives FAST pour une gestion avancée de l'état et du cycle de vie, simplifiant le développement de composants dynamiques.
+
+### **Différences entre Lithium et FAST :**
+
+Bien que Lithium s'appuie sur FAST pour ses Web Components, il se distingue par sa capacité à rendre des templates directement, sans nécessiter la création de Web Components. Cela permet d’utiliser des templates avec un **contexte enrichi** pour gérer l'état, les effets, et l'interactivité de manière efficace, ce qui est particulièrement utile pour les éléments dynamiques ou temporaires où un Web Component standard serait superflu.
+
+### **Templates et ViewTemplate :**
+
+Les templates Lithium utilisent des littéraux de template JavaScript, marqués par la balise `html`, permettant une déclaration déclarative du HTML avec des expressions dynamiques.
+
+Exemple de template avec **ViewTemplate** :
+
+```jsx
+import { html, render, ViewTemplate } from '@lithium-framework/core';
+
+let template: ViewTemplate<any> = html`<h1>Hello World !</h1>`;
+render(template, document.body);
+```
+
+Un **ViewTemplate** est une encapsulation optimisée d'un template HTML, gérant efficacement les parties statiques et dynamiques du DOM pour un rendu performant.
+
+### **ComponentContext :**
+
+Le **ComponentContext** est un concept clé de Lithium, permettant d'enrichir les templates avec un contexte dynamique. Contrairement aux Web Components traditionnels qui nécessitent une définition et un enregistrement, le ComponentContext permet d'injecter des données, des états ou des comportements directement dans un template à la volée. Cela simplifie la gestion d'états et l’interaction, rendant les composants temporaires ou dynamiques plus faciles à manipuler.
+
+Exemple d'utilisation de **ComponentContext** :
+
+```jsx
+import { html, render, ViewTemplate, ComponentContext } from '@lithium-framework/core';
+
+type Context = ComponentContext<{ message: string }>;
+let template: ViewTemplate<Context> = html`${(context) => {
+    let { message } = context;
+    return html`<h1>${message}</h1>`;
+}}`;
+
+render(template, document.body, { message: "Hello World !" });
+```
+
+### **Expressions :**
+
+Les expressions dans Lithium permettent d'intégrer des valeurs dynamiques dans les templates. Elles acceptent des primitives JavaScript et peuvent être étendues avec des directives pour un rendu personnalisé, offrant ainsi une grande flexibilité dans la création d'interfaces utilisateur dynamiques.

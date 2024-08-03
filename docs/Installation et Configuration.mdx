@@ -1,0 +1,116 @@
+---
+sidebar_position: 3
+---
+
+# Installation et Configuration de Lithium
+
+### Installation
+
+Pour commencer à utiliser Lithium, suivez les étapes ci-dessous pour l'installer et le configurer dans votre projet, ou téléchargez notre starter : [Dowload Starter](https://github.com/lithium-framework/lithium-ts-starter/archive/refs/heads/main.zip).
+
+### Prérequis
+
+Avant d'installer Lithium, assurez-vous d'avoir les éléments suivants :
+
+- **Node.js** : Lithium est compatible avec les versions modernes de Node.js. Vous pouvez télécharger et installer Node.js depuis [nodejs.org](https://nodejs.org/).
+- **Un gestionnaire de paquets** : npm (inclus avec Node.js) ou yarn.
+
+### 1. Création d'un Projet
+
+Si vous partez de zéro, créez un nouveau projet avec npm ou yarn. Ouvrez votre terminal et exécutez :
+
+```bash
+mkdir mon-projet
+cd mon-projet
+npm init -y  # ou yarn init -y
+```
+
+### 2. Installation de Lithium
+
+Ajoutez Lithium à votre projet en utilisant npm ou yarn :
+
+```bash
+npm install @lithium-framework/core  # ou yarn add @lithium-framework/core
+```
+
+### 3. Choix de l’Outil de Bundling
+
+[**Parcel**](https://parceljs.org//) est un choix populaire pour le bundling de vos projets JavaScript en raison de sa simplicité et de sa facilité d'utilisation. Voici comment l'installer et le configurer :
+
+```bash
+npm install --save-dev parcel  # ou yarn add --dev parcel
+```
+
+**Configuration avec Parcel :**
+
+Ajoutez un script de démarrage dans votre fichier `package.json` :
+
+- **package.json** :
+    
+    ```js
+    {
+      "name": "mon-projet",
+      "version": "1.0.0",
+      "source": "src/index.html",
+      "scripts": {
+        "start": "parcel",
+        "build": "parcel build"
+      },
+      ...
+    }
+    
+    ```
+    
+
+Créez des fichiers de projet pour tester l'installation :
+
+- **src/index.html** :
+    
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Mon Projet Lithium</title>
+    </head>
+    <body>
+      <script type="module" src="./index.ts"></script>
+    </body>
+    </html>
+    
+    ```
+    
+- **src/index.ts** :
+    
+    ```tsx
+    import { html, render, ViewTemplate } from '@lithium-framework/core';
+    
+    let template: ViewTemplate<any> = html`<h1>Hello Lithium!</h1>`;
+    render(template, document.body);
+    ```
+    
+
+Pour démarrer le projet en mode développement, exécutez :
+
+```bash
+npm start  # ou yarn start
+```
+
+Pour créer un build de production, exécutez :
+
+```bash
+npm run build  # ou yarn build
+```
+
+### 4. Autres Options de Configuration
+
+Parcel est une option parmi d'autres pour le bundling et la configuration de vos projets JavaScript. Voici quelques autres outils populaires avec leurs URLs respectives :
+
+- [**Webpack**](https://webpack.js.org/) : Un bundler puissant avec une configuration plus complexe mais offrant des fonctionnalités avancées.
+- [**Rollup**](https://rollupjs.org/) : Un bundler orienté vers les modules JavaScript, idéal pour les bibliothèques et les projets de taille réduite.
+- [**Vite**](https://vitejs.dev/) : Un build tool moderne avec un temps de démarrage très rapide, utilisant les modules ES en développement.
+
+Vous pouvez choisir l'outil de bundling qui convient le mieux à vos besoins et à votre flux de travail. Chaque outil a ses avantages et inconvénients, donc il est recommandé de les essayer pour déterminer lequel répond le mieux aux exigences de votre projet.
+
+Pour un exemple de projet TypeScript utilisant Lithium, vous pouvez consulter notre starter officiel disponible à l'adresse suivante : [Lithium TypeScript Starter](https://github.com/lithium-framework/lithium-ts-starter).

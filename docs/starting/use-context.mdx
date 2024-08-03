@@ -1,0 +1,130 @@
+---
+sidebar_position: 4
+---
+
+# Utiliser les Contexts
+
+Dans le cadre de Lithium, le contexte joue un rôle crucial dans la gestion dynamique des états et des données.
+
+<Tabs>
+  <TabItem value="componentContext" label="Contexte Enrichi">
+
+    :::note
+    **Context enrichi**
+
+    Un **Contexte Enrichi** est un concept qui permet de gérer les états et les données dans des éléments créés à la volée, sans avoir besoin de définir une classe pour un Web Component. Ce contexte est dynamique et est utilisé pour gérer les valeurs observables et les valeurs consomables dans un template Lithium.
+    :::
+
+  </TabItem>
+  <TabItem value="webComponent" label="WebComponent" default>
+
+    :::note
+    **Context de WebComponent**
+
+    Les **Web Components** sont des éléments encapsulés qui peuvent être réutilisés et partagés à travers les applications. Ils sont définis en utilisant des classes, ce qui permet d'intégrer directement des fonctionnalités telles que des valeurs observables et consomables.
+    :::
+
+  </TabItem>
+</Tabs>
+
+## Fonctionnalités des Contextes
+
+1. **Valeurs Observables** :
+    - Les valeurs observables dans un contexte enrichi sont des variables dont les changements sont automatiquement détectés et reflétés dans le template. Ces valeurs sont réactives, ce qui signifie que toute modification apportée à ces valeurs sera instantanément mise à jour dans l'interface utilisateur.
+2. **Valeurs Consomables** :
+    - Les valeurs consomables sont des valeurs internes au contexte sync avec un observable. Elles ne peuvent pas être modifiées directement par l'utilisateur, mais peuvent être utilisées dans le template pour l'affichage ou d'autres opérations. Elles permettent de consommer des données tout en protégeant leur intégrité.
+
+## Exemple d'Utilisation de Contexte
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="componentContext" label="Contexte Enrichi">
+
+    ### Exemple d'Utilisation de Contexte de Enrichi
+
+    Dans cet exemple, nous utilisons un contexte enrichi pour gérer les valeurs observables et consomables dans un template dynamique :
+
+    ```tsx
+    import { html, render, ViewTemplate, ComponentContext } from '@lithium-framework/core';
+
+    // Déclaration du template avec contexte enrichi
+    let template: ViewTemplate<ComponentContext<{ message: string }>> = html`${( context ) => {
+        
+        
+        let names = [ "username_1" , "username_2" ];
+
+        // Création d'une valeur consomable
+        context.createConsumable( 'listItems' , [] );
+    
+        return html`<div>
+            <ul ${ children({ property : "listItems" , filter: elements('li') }) } >
+                ${ repeat( names , html<string>`<li>${ str => str }</li>` ) }
+            </ul>
+            ${() => {
+                return html`<p>total users : (${ context.listItems.length })</p>`
+            }}
+        </div>`;
+    
+    }}`;
+
+    // Utilisation du template avec contexte enrichi
+    render(template, document.body , { message: 'Hello, World!' });
+    ```
+
+    **Explications** :
+
+    - **`createConsumable`** : Cette méthode permet de définir des valeurs consomables qui seront accessibles en lecture seule dans le template.
+    - **`repeat`** : Fonction pour itérer sur des données et générer des éléments HTML dynamiquement.
+
+  </TabItem>
+  <TabItem value="webComponent" label="WebComponent" default>
+
+    ### Exemple d'Utilisation de Contexte de WebComponent
+
+    Dans cet exemple, nous créons un Web Component qui utilise des valeurs observables et consomables définies dans la classe du composant :
+
+    ```tsx
+    import { html, render , WebComponent , customElement , state , children , repeat } from '@lithium-framework/core';
+
+    @customElement({
+        name : 'my-web-component',
+        template : html`${( context ) => {
+            
+            let names = [ "username_1" , "username_2" ],
+        
+            return html`<div>
+                <ul ${ children({ property : "listItems" , filter: elements('li') }) } >
+                    ${ repeat( names , html<string>`<li>${ str => str }</li>` ) }
+                </ul>
+                ${() => {
+                    return html`<p>total users : (${ context.listItems.length })</p>`
+                }}
+            </div>`;
+        
+        }}`
+    })
+    export class MyWebComponent extends WebComponent{
+
+        @state listItems = [];
+
+    }
+    ```
+
+    **Explications** :
+
+    - **`@state`** : Décorateur pour définir des valeurs observables dans la classe du Web Component. Les changements apportés à ces valeurs entraîneront une mise à jour automatique du template.
+    - **`repeat`** : Fonction pour itérer sur des données et générer des éléments HTML dynamiquement, similaire à l'exemple des contextes enrichis.
+
+  </TabItem>
+</Tabs>
+
+## Web Components vs. Contextes Enrichis
+
+Les **Web Components** et les **Contextes Enrichis** partagent des concepts clés dans Lithium, tels que les valeurs observables et consomables. Voici les principales différences et similitudes :
+
+- **Valeurs Observables** : Dans les Web Components, les valeurs observables sont déclarées dans la classe du composant à l'aide de décorateurs comme `@state`. Dans les Contextes Enrichis, elles sont définies dynamiquement dans le template.
+- **Valeurs Consomables** : Les valeurs consomables sont également utilisées dans les deux approches. Dans les Web Components, elles sont définies dans la classe du composant, tandis que dans les Contextes Enrichis, elles sont créées dynamiquement à l'aide de méthodes du contexte.
+
+**Approche à Long Terme** : Les Web Components offrent une approche plus durable pour les projets à long terme en tirant parti des avantages complets des Web Components standards, comme l'encapsulation et la réutilisabilité. Les Contextes Enrichis sont idéaux pour des scénarios plus dynamiques ou temporaires où l'utilisation de Web Components n'est pas possible ou nécessaire.
