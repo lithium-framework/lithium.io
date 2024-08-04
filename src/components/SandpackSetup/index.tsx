@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { SandpackProvider, SandpackLayout, SandpackCodeEditor, SandpackPreview } from "@codesandbox/sandpack-react";
-import { useMemo } from "react";
-
-import { Sandpack } from "@codesandbox/sandpack-react";
+import { SandpackProvider, SandpackLayout, SandpackFileExplorer, SandpackCodeEditor, SandpackPreview } from "@codesandbox/sandpack-react";
 
 import { createConfiguration } from './configuration/index';
+import styles from './style.module.css';
+import './style.module.css';
 
-const SandpackSetup = ({ config }) => {
+export interface ISandpackSetup{
+  config;
+  fileExplorer?:boolean;
+}
+
+const SandpackSetup = ({ config , fileExplorer }:ISandpackSetup) => {
 
   let [ configuration , setConfiguration ] = useState< any >( null );
   useEffect(() => {
@@ -22,11 +26,12 @@ const SandpackSetup = ({ config }) => {
         template="vanilla-ts"
         files={ configuration.files }
         customSetup={ configuration }
-        style={{ display : "grid" }}
+        style={{ display : "flex" , flex : "1" }}
       >
-        <SandpackLayout style={{ display : 'grid' , height : '100%' }} >
-          <SandpackCodeEditor style={{ gridRow : 1 , height : '100%' }} />
-          <SandpackPreview style={{ gridRow : 1 , height : '100%' }}/>
+        <SandpackLayout className={`sandpack-layout ${styles.SandpackLayout}`}>
+          {( fileExplorer ? <SandpackFileExplorer className={styles.SandpackFileExplorer}/> : null)}
+          <SandpackCodeEditor className={styles.SandpackCodeEditor} showLineNumbers = {true} />
+          <SandpackPreview className={styles.SandpackPreview} />
         </SandpackLayout>
       </SandpackProvider>
       :

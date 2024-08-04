@@ -40,14 +40,14 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/lithium-framework/lithium.io/tree/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/lithium-framework/lithium.io/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -72,7 +72,16 @@ const config: Config = {
           position: 'left',
           label: 'Tutorial',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          to: '/blog', 
+          label: 'Blog', 
+          position: 'left'
+        },
+        {
+          to: '/sandbox', 
+          label: 'Sandbox', 
+          position: 'left'
+        },
         {
           href: 'https://github.com/lithium-framework/core',
           label: 'GitHub',

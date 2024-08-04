@@ -1,0 +1,17 @@
+# Ref
+
+La directive `ref` dans Lithium est utilisée pour créer des références vers des éléments du DOM ou des composants, permettant ainsi de les manipuler directement dans le code. Cette fonctionnalité est particulièrement utile pour interagir avec des éléments du DOM qui ne sont pas directement accessibles via les propriétés du contexte.
+
+### Fonctionnalité
+
+- **Création de Références** : La directive `ref` permet de créer et d'assigner des références (`refs`) à des éléments du DOM ou des composants. Une référence est un objet qui pointe vers un élément spécifique et permet de le manipuler ou de l'interroger après le rendu.
+- **Accès aux Éléments du DOM** : Une fois qu'une référence est créée, vous pouvez accéder à l'élément du DOM correspondant via la propriété `value` de la référence. Cela vous permet de lire ou de modifier l'état de l'élément après son rendu.
+- **Réactivité** : Les références sont intégrées dans le cycle de vie du rendu de Lithium, ce qui garantit que les éléments auxquels elles se réfèrent sont disponibles lorsque vous essayez de les manipuler.
+
+### Concept Clé
+
+La directive `ref` fournit un mécanisme pour obtenir des références directes aux éléments du DOM, ce qui est utile pour des opérations nécessitant un accès direct aux éléments après leur rendu, comme la manipulation du DOM ou l'intégration avec des bibliothèques tierces.
+
+import SandpackSample from '../../../src/components/SandpackSamples/ref-sample';
+
+<SandpackSample/>

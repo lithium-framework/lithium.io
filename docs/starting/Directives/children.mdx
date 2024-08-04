@@ -1,0 +1,19 @@
+# Children
+
+La directive `children` dans Lithium est utilisée pour rendre des éléments enfants à partir d'une liste ou d'un tableau d'éléments. Elle simplifie la gestion des éléments enfants en permettant de spécifier des propriétés et des filtres pour manipuler et afficher des éléments dans le DOM.
+
+### Fonctionnalité
+
+- **Gestion Dynamique des Enfants** : La directive `children` permet de gérer dynamiquement les éléments enfants d'un composant. Elle peut prendre une liste d'éléments ou des instructions sur comment filtrer ou organiser ces éléments.
+- **Propriétés et Filtres** :
+    - **`property`** : Spécifie la propriété du contexte contenant les éléments enfants.
+    - **`filter`** : Permet de filtrer les éléments enfants en utilisant des fonctions comme `elements()` pour sélectionner des types spécifiques d'éléments.
+- **Réactivité** : Lorsqu'une propriété ou un état lié à la directive `children` change, le DOM est automatiquement mis à jour pour refléter ces changements.
+
+### Concept Clé
+
+La directive `children` facilite l'inclusion et la gestion des éléments enfants dans un template Lithium. Elle est particulièrement utile pour les situations où vous devez manipuler ou afficher une collection d'éléments en fonction de l'état ou des données du composant.
+
+import SandpackSample from '../../../src/components/SandpackSamples/children-sample';
+
+<SandpackSample/>

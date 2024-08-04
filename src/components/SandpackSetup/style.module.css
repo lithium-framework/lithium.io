@@ -1,0 +1,33 @@
+.SandpackLayout{
+  flex: 1;
+  display: grid !important;
+  grid-template-columns: min-content 60% 1fr;
+  grid-template-rows: 1fr;
+}
+
+.SandpackFileExplorer{
+  height: 100% !important;
+  grid-column: 1;
+}
+
+.SandpackCodeEditor{
+  height: 100% !important;
+  flex: 1 !important;
+  grid-column: 2;
+}
+
+.SandpackPreview{
+  height: 100% !important;
+  flex: 1 !important;
+  grid-column: 3;
+}
+
+@media screen and (max-width: 768px) {
+
+  .SandpackLayout{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60% 1fr;
+  }
+
+}

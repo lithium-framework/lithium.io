@@ -1,0 +1,17 @@
+# Until
+
+La directive `until` de Lithium est utilisée pour afficher un contenu conditionnellement en fonction de l'état de promesses. Elle est particulièrement utile pour gérer les situations où vous devez afficher des données ou des éléments une fois qu'une promesse est résolue, tout en montrant un contenu de remplacement pendant le chargement.
+
+### Fonctionnalité
+
+- **Gestion des Promesses** : `until` permet de gérer le rendu conditionnel en fonction de la résolution d'une promesse. Vous pouvez spécifier un contenu à afficher pendant que la promesse est en attente, ainsi que le contenu à afficher lorsque la promesse est résolue.
+- **Affichage Conditionnel** : La directive simplifie la gestion de l'état de chargement et du rendu des données en fournissant une manière concise de gérer les promesses directement dans les templates.
+- **Réactivité** : `until` réagit aux changements de l'état de la promesse et met automatiquement à jour le contenu affiché lorsque la promesse est résolue ou rejetée.
+
+### Concept Clé
+
+La directive `until` est essentielle pour la gestion des états de chargement et des données asynchrones dans Lithium. Elle vous permet d'afficher un contenu par défaut pendant que les données sont en cours de chargement, puis de remplacer ce contenu par le résultat final une fois que les données sont disponibles.
+
+import SandpackSample from '../../../src/components/SandpackSamples/until-sample';
+
+<SandpackSample/>
