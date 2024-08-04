@@ -1,0 +1,18 @@
+# State
+
+Le décorateur `@state` de Lithium est un outil puissant utilisé pour gérer l'état local des composants. Il permet de rendre certaines propriétés réactives, ce qui garantit que tout changement dans l'état du composant se reflète immédiatement dans l'interface utilisateur.
+
+### Fonctionnalité
+
+- **Réactivité Automatique** : En appliquant `@state` à une propriété, chaque modification de cette propriété déclenche automatiquement une mise à jour du template associé.
+- **Encapsulation** : Les propriétés marquées par `@state` restent internes au composant, évitant les modifications non contrôlées de l'extérieur.
+
+### Concepts Clés
+
+- **Gestion Efficace des États** : `@state` facilite la gestion des états locaux sans avoir besoin de manipulations complexes du DOM.
+- **Optimisation des Mises à Jour** : Lithium met à jour uniquement les parties du DOM affectées par les changements d'état, ce qui améliore les performances du rendu.
+- **Simplicité et Maintenabilité** : En centralisant la logique de gestion d'état dans le composant, `@state` simplifie le code et le rend plus facile à maintenir.
+
+import SandpackSample from '../../../src/components/SandpackSamples/state-sample';
+
+<SandpackSample/>
