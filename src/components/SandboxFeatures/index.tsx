@@ -1,11 +1,13 @@
 import * as React from 'react';
 import Sandbox from './sandbox';
 
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import styles from './styles.module.css';
 
 export function SandboxFeature(){
 
-  return <Sandbox/>;
+  return <div className={styles.SandboxFeature} >
+    <Sandbox/>
+  </div>;
 
 };
 

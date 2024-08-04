@@ -3,6 +3,7 @@
   display: grid !important;
   grid-template-columns: min-content 60% 1fr;
   grid-template-rows: 1fr;
+  min-height: 300px;
 }
 
 .SandpackFileExplorer{
@@ -12,7 +13,7 @@
 
 .SandpackCodeEditor{
   height: 100% !important;
-  flex: 1 !important;
+  flex: 1 1 0 !important;
   grid-column: 2;
 }
 
