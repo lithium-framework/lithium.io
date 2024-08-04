@@ -28,7 +28,22 @@
   .SandpackLayout{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 60% 1fr;
+    grid-template-rows: min-content 60% 1fr;
+  }
+
+  .SandpackFileExplorer{
+    grid-row: 1;
+    grid-column: 1;
+  }
+  
+  .SandpackCodeEditor{
+    grid-row: 2;
+    grid-column: 1;
+  }
+  
+  .SandpackPreview{
+    grid-row: 3;
+    grid-column: 1;
   }
 
 }
