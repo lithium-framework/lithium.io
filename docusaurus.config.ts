@@ -56,6 +56,13 @@ const config: Config = {
     ],
   ],
 
+  stylesheets : [
+    {
+      href : '/css/overwrite.css',
+      type: 'text/css',
+    }
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -139,6 +146,8 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  themes: ['@docusaurus/theme-live-codeblock'],
 };
 
 export default config;

@@ -1,0 +1,72 @@
+:root {
+  /* Palette des couleurs */
+  --color-primary: #13AE9F; /* Pour les titres et les accents */
+  --color-secondary: #1E6C88; /* Pour le texte principal */
+  --color-tertiary: #244170; /* Pour les sous-titres et les éléments secondaires */
+  --color-link-hover: #28b3e3; /* Pour les liens au survol */
+  --color-button: #0d8a78; /* Pour les boutons et autres éléments interactifs */
+  --color-text-inverted: #ffffff; /* Texte inversé (sur fond sombre) */
+}
+
+/* Styles globaux */
+body {
+  color: var(--color-secondary); /* Texte principal */
+}
+
+/* Titres */
+h1, h2, h3 {
+  color: var(--color-primary); /* Titres en turquoise */
+}
+
+/* Sous-titres ou éléments secondaires */
+h4, h5, h6, .subtitle {
+  color: var(--color-tertiary); /* Sous-titres en bleu foncé */
+}
+
+/* Liens */
+a {
+  color: var(--color-primary); /* Liens par défaut en turquoise */
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-link-hover); /* Lien au survol en bleu électrique */
+  text-decoration: underline;
+}
+
+/* Boutons */
+button, .btn-primary {
+  background-color: var(--color-button); /* Bouton en vert foncé */
+  color: var(--color-text-inverted); /* Texte blanc sur le bouton */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover, .btn-primary:hover {
+  background-color: var(--color-primary); /* Bouton au survol devient turquoise */
+}
+
+/* Texte inversé sur fond sombre */
+.dark-background {
+  background-color: var(--color-tertiary); /* Fond sombre en bleu foncé */
+  color: var(--color-text-inverted); /* Texte blanc sur fond sombre */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Optionnel : ajustement de styles spécifiques à Docusaurus */
+.doc-page h1, .doc-page h2, .doc-page h3 {
+  color: var(--color-primary); /* Appliquer aux titres des pages de documentation */
+}
+
+.doc-page p {
+  color: var(--color-secondary); /* Texte principal des pages de documentation */
+}
+
+/* Banner */
+
+.heroBanner_src-pages-index-module{
+  background: linear-gradient(135deg, #13ae9f 0%, #1e6c88 50%, #244170 100%) !important;
+}

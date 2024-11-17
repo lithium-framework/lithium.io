@@ -7,6 +7,28 @@ Le décorateur `@state` de Lithium est un outil puissant utilisé pour gérer l'
 - **Réactivité Automatique** : En appliquant `@state` à une propriété, chaque modification de cette propriété déclenche automatiquement une mise à jour du template associé.
 - **Encapsulation** : Les propriétés marquées par `@state` restent internes au composant, évitant les modifications non contrôlées de l'extérieur.
 
+```ts
+import { WebComponent , customElement , state } from '@lithium-framework/core';
+
+@customElement( "reactive-web-component" )
+class MyWebComponent extends WebComponent{
+
+  @state() value = null
+
+}
+```
+
+```ts
+import { WebComponent , customElement , state } from '@lithium-framework/core';
+
+@customElement( "reactive-web-component" )
+class MyWebComponent extends WebComponent{
+
+  @state({ lazy : true }) value = null
+
+}
+```
+
 ### Concepts Clés
 
 - **Gestion Efficace des États** : `@state` facilite la gestion des états locaux sans avoir besoin de manipulations complexes du DOM.

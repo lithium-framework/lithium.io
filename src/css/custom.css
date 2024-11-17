@@ -5,7 +5,7 @@
  */
 
 /* You can override the default Infima variables here. */
-:root {
+/* :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
@@ -17,10 +17,28 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
   --ifm-font-size-base: 90%;
+} */
+
+:root {
+  /* Couleurs primaires adaptées */
+  --ifm-color-primary: #13AE9F; /* Turquoise pour éléments principaux */
+  --ifm-color-primary-dark: #0d8a78; /* Vert foncé pour les éléments actifs */
+  --ifm-color-primary-darker: #0b7461; /* Encore plus foncé pour les survols */
+  --ifm-color-primary-darkest: #074b3f; /* Vert très foncé */
+  --ifm-color-primary-light: #1E6C88; /* Bleu intermédiaire */
+  --ifm-color-primary-lighter: #28b3e3; /* Bleu clair, utilisé pour les accents */
+  --ifm-color-primary-lightest: #3cad6e; /* Vert plus clair si nécessaire */
+
+  /* Couleurs de code */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1); /* Fond pour lignes de code mises en évidence */
+
+  /* Tailles de texte */
+  --ifm-font-size-base: 90%; /* Taille de police de base */
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+/* [data-theme='dark'] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -29,6 +47,27 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+} */
+
+[data-theme='dark'] {
+  /* Couleurs pour le thème sombre */
+  --ifm-color-primary: #13AE9F; /* Turquoise sombre, utilisé comme couleur principale */
+  --ifm-color-primary-dark: #108F80; /* Teinte plus foncée du turquoise */
+  --ifm-color-primary-darker: #0A665A; /* Variante encore plus sombre pour les éléments actifs */
+  --ifm-color-primary-darkest: #083F39; /* Teinte la plus foncée du turquoise */
+  
+  --ifm-color-primary-light: #1E6C88; /* Bleu foncé pour les éléments secondaires */
+  --ifm-color-primary-lighter: #2983A3; /* Bleu un peu plus clair pour les accents */
+  --ifm-color-primary-lightest: #44A4C0; /* Bleu clair pour les survols ou éléments moins importants */
+
+  /* Couleurs pour le code */
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1); /* Fond pour lignes de code mises en évidence (clair pour contraster) */
+
+  /* Autres couleurs spécifiques au thème sombre */
+  --ifm-background-color: #121212; /* Fond principal du thème sombre */
+  --ifm-background-color-alt: #1e1e1e; /* Fond des zones de contenu */
+  --ifm-color-text: #d1d5da; /* Couleur du texte principal, proche du gris clair */
+  --ifm-color-text-light: #9da5b4; /* Couleur du texte secondaire */
 }
 
 div.fullscreen{
@@ -37,4 +76,29 @@ div.fullscreen{
 
 div.fullscreen-enabled > div{
   display: grid;
+}
+
+/* Boutons */
+button, .btn-primary {
+  background-color: var(--ifm-color-primary); /* Utilise le turquoise pour les boutons */
+  color: white;
+}
+
+button:hover, .btn-primary:hover {
+  background-color: var(--ifm-color-primary-dark); /* Vert foncé au survol */
+}
+
+/* Liens */
+a {
+  color: var(--ifm-color-primary); /* Turquoise pour les liens */
+}
+
+a:hover {
+  color: var(--ifm-color-primary-lighter); /* Bleu électrique pour le survol */
+}
+
+/*  */
+
+.heroBanner_src-pages-index-module{
+  background: linear-gradient(135deg, #13ae9f 0%, #1e6c88 50%, #244170 100%) !important;
 }
